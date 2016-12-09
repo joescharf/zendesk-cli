@@ -1,10 +1,14 @@
-# Zendesk Ticket Export to CSV
+# Zendesk CLI
 
-Exports all tickets from Zendesk into CSV file, using Zendesk API v2.
+Zendesk Command line interface
+
+##Usage:
+
+zendesk-cli --help  (for available commands)
 
 ## config.yaml
 
-Create a config.yaml with your Zendesk credentials and subdomain:
+Create `~/.zendesk-cli.yaml` with your Zendesk credentials and subdomain:
 
 ```yaml
 username: username@example.com
