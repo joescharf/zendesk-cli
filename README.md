@@ -6,7 +6,7 @@ Zendesk Command line interface
 
 zendesk-cli --help  (for available commands)
 
-## config.yaml
+## .zendesk-cli.yaml
 
 Create `~/.zendesk-cli.yaml` with your Zendesk credentials and subdomain:
 
