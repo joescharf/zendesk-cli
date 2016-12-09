@@ -38,12 +38,12 @@ var exportticketsCmd = &cobra.Command{
 	Long:  `Output will be placed in zendesk.csv`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		fmt.Printf("Using Zendesk: username: %s, Subdomain: %s\n", viper.GetString("username"), viper.GetString("subdomain"))
+		fmt.Printf("-> Using Zendesk: username: %s, Subdomain: %s\n", viper.GetString("username"), viper.GetString("subdomain"))
 		auth := zego.Auth{viper.GetString("username") + "/token", viper.GetString("token"), viper.GetString("subdomain")}
 
 		tickets, err := auth.ListTickets()
 		if err != nil {
-			fmt.Println("Error listingn Zendesk tickets: ", err)
+			fmt.Println("** Error listing Zendesk tickets: ", err)
 			return
 		}
 
@@ -52,18 +52,18 @@ var exportticketsCmd = &cobra.Command{
 		// 	fmt.Printf("Error converting to CSV", err)
 		// 	return
 		// }
-		fmt.Println("Creating Output File ", outFile)
+		fmt.Println("-> Creating Output File ", outFile)
 		file, err := os.Create(outFile)
 		if err != nil {
-			fmt.Println("Error creating output file: ", err)
+			fmt.Println("** Error creating output file: ", err)
 			return
 		}
 		defer file.Close()
 
-		fmt.Println("Writing CSV Data")
+		fmt.Println("-> Writing CSV Data")
 		err = gocsv.MarshalFile(tickets.Tickets, file)
 		if err != nil {
-			fmt.Println("Error writing to outputfile: ", err)
+			fmt.Println("** Error writing to outputfile: ", err)
 			return
 		}
 

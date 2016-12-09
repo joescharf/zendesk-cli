@@ -15,8 +15,9 @@ import (
 
 func main() {
 
-	fmt.Println("Zendesk CLI")
+	fmt.Println("** Zendesk CLI**\n")
 	cmd.Execute()
+	fmt.Println()
 
 	// record := make([]string, 9)
 	// heading := []string{"id", "created_at", "type", "status", "subject", "requester_id", "submitter_id", "recipient", "description"}
